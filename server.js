@@ -11,12 +11,23 @@ var errlog = console.error.bind(console);
  
 var fs = require('fs');
 
+var bodyParser = require('body-parser');
+var protobuf = require('protocol-buffers')
+
+// pass a proto file as a buffer/string or pass a parsed protobuf-schema object
+var messages = protobuf( fs.readFileSync(path.join(__dirname, 'SimpleMessage.proto')) );
+
 var PORT = 8765;
 
 
 function rand(n){
     return Math.floor(n*Math.random());
 }
+
+
+app.disable("x-powered-by");
+
+//app.use(bodyParser.raw())
 
 
 app.use(compression());
@@ -29,8 +40,23 @@ app.get('/browserify-bundle.js', function(req, res){
 });
 
 
-app.get('/msg', function(req, res){
-    res.send(new Buffer(5).fill(0x0F));
+app.post('/msg', function(req, res){
+    var buffers = []
+    
+    req.on('data', function(data){
+        console.log('data', data.length);
+        buffers.push(data);
+    });
+    
+    req.on('end', function(){
+        var res = Buffer.concat(buffers);
+        var msg = messages.SimpleMessage.decode(res);
+        
+        console.log('end', msg);
+    })
+    
+    
+    //res.send(new Buffer(5).fill(0x0F));
 });
 
 

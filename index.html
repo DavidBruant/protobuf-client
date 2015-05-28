@@ -165,7 +165,13 @@
             };
         </script>
 
-
+        <script type="protobuf-description">
+        message SimpleMessage {
+          required uint32 a  = 1;
+          required string b = 2;
+        }
+        </script>
+        
         <script defer src="/browserify-bundle.js"></script>
     </head>
     <body>

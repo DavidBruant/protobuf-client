@@ -1,0 +1,4 @@
+message SimpleMessage {
+  required uint32 a  = 1;
+  required string b = 2;
+}
