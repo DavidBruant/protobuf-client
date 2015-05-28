@@ -1,0 +1,22 @@
+{
+  "name": "protobuf-client",
+  "version": "1.0.0",
+  "description": "Playing with protocol buffers on the client-side",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "bundle": "browserify client.js -o browserify-bundle.js -d",
+    "watch": "watchify client.js -o browserify-bundle.js -d -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DavidBruant/protobuf-client.git"
+  },
+  "author": "David Bruant <bruant.d@gmail.com> (https://twitter.com/DavidBruant)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DavidBruant/protobuf-client/issues"
+  },
+  "homepage": "https://github.com/DavidBruant/protobuf-client"
+}
