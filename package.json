@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/DavidBruant/protobuf-client",
   "dependencies": {
-    "brfs": "^1.4.0"
+    "brfs": "^1.4.0",
+    "protocol-buffers": "^3.1.1"
   }
 }
