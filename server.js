@@ -49,10 +49,11 @@ app.post('/msg', function(req, res){
     });
     
     req.on('end', function(){
-        var res = Buffer.concat(buffers);
-        var msg = messages.SimpleMessage.decode(res);
+        var buf = Buffer.concat(buffers);
+        var msg = messages.SimpleMessage.decode(buf);
         
         console.log('end', msg);
+        res.send();
     })
     
     
