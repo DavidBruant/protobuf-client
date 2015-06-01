@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/DavidBruant/protobuf-client",
   "dependencies": {
+    "better-log": "^1.1.0",
     "brfs": "^1.4.0",
     "es6-shim": "^0.31.2",
     "protocol-buffers": "^3.1.1"
